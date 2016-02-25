@@ -1,4 +1,26 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>accoutrement-scale Documentation</title><link href="assets/img/favicon.ico" rel="shortcut icon"><link rel="stylesheet" href="assets/css/main.css"><link rel="stylesheet" href="assets/css/theme.css"></head><body><header role="banner" data-sassdoc-region="banner"><h1 data-sassdoc="project-title"><a href="https://github.com/oddbird/accoutrement-scale" rel="home" data-sassdoc="project-name">accoutrement-scale</a> <span data-sassdoc="project-version">2.0.0</span></h1></header><nav role="navigation" data-sassdoc-region="nav"><h2 data-sassdoc="nav-title"><a href="index.html" rel="home" data-sassdoc-nav="is-active">Pattern Library</a></h2><a href="config.html" data-sassdoc-nav="is-not-active">configuration</a> <a href="sizes.html" data-sassdoc-nav="is-not-active">sizes</a> <a href="type.html" data-sassdoc-nav="is-not-active">type</a> <a href="units.html" data-sassdoc-nav="is-not-active">units</a></nav><main role="main" data-sassdoc-region="main" data-sassdoc-page="index"><h1 id="accoutrement-scale">accoutrement-scale</h1><p>Sass typography <a href="http://oddbird.net/accoutrement/">Accoutrement</a> by <a href="http://oddbird.net/">OddBird</a>. Sass size &amp; scale management tools. Generate sizes based on <a href="http://www.modularscale.com/">modular scales</a>, gather all your sizes into a single map, and access them by name in various ways.</p><h2 id="quick-start">Quick Start</h2><pre><code class="lang-bash">npm install accoutrement-scale
-</code></pre><p>Import the library:</p><pre><code class="lang-scss">@import &#39;path/to/accoutrement-scale/scale&#39;
-</code></pre><p>Configure your ratios and sizes:</p><pre><code class="lang-scss">
+</code></pre><p>Import the library:</p><pre><code class="lang-scss">@import &#39;path/to/accoutrement-scale/sass/scale&#39;
+</code></pre><p>Establish your palette of ratios and sizes, along with the default units needed for output:</p><pre><code class="lang-scss">$default-units: &#39;rem&#39;;
+
+$ratios: (
+  &#39;my-ratio&#39;: 1.25,
+);
+
+$sizes: (
+  &#39;root&#39;: 24px,
+  &#39;rhythm&#39;: &#39;root&#39; (&#39;fifth&#39;: 1),
+
+  &#39;h1&#39;: &#39;root&#39; (&#39;my-ratio&#39;: 3),
+  &#39;h2&#39;: &#39;root&#39; (&#39;my-ratio&#39;: 2),
+  &#39;h3&#39;: &#39;root&#39; (&#39;my-ratio&#39;: 1),
+
+  &#39;page&#39;: &#39;8in&#39;,
+);
+</code></pre><p>Access your sizes from anywhere, with helpers for setting font-sizes and line-heights:</p><pre><code class="lang-scss">h1 {
+  @include font-size(&#39;h1&#39;);
+  max-width: size(&#39;page&#39;);
+}
+</code></pre><p>We can only calculate integer steps along an exponential scale, but if you want more power, install <a href="https://github.com/terkel/mathsass">MathSass</a>, and we&#39;ll let them do the hard math.</p><pre><code class="lang-scss">$sizes: (
+  &#39;complex&#39;: &#39;root&#39; (&#39;my-scale&#39;: 1.25),
+);
 </code></pre></main><script type="text/javascript" src="assets/js/highlight.js"></script><script type="text/javascript">hljs.initHighlightingOnLoad();</script></body></html>
